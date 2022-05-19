@@ -1,0 +1,15 @@
+nodes:
+  hosts: 
+    vps4:
+    vps5:
+
+
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
+    application_dir: /var/www/application
+    admin_user: sjaak@pietjepuk.com
+    application_repo: https://github.com/dev-master-ninja/ansible-application.git
+
+    database: app_data
+    db_user: app_user
+    db_password: password123

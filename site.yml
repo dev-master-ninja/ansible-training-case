@@ -1,0 +1,6 @@
+- hosts: nodes
+  roles: 
+    - install
+    - config
+    - application
+    - clean-up

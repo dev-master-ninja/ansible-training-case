@@ -1,0 +1,5 @@
+packages:
+    - apache2
+    - mariadb-server
+    - php
+    - php-mysqli

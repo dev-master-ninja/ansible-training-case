@@ -1,0 +1,23 @@
+- name: Create Application Dir
+  file: 
+    path: "{{ application_dir }}"
+    state: absent
+
+- name: Download Application
+  shell: git clone {{ application_repo }} {{ application_dir }}
+
+- name: Copy SQL
+  template:
+    src: admin.sql
+    dest: /tmp/admin.sql
+
+- name: Exec SQL
+  shell: mysql < /tmp/admin.sql
+
+- name: Import Data
+  shell: mysql -u {{ db_user }} -p{{ db_password}} {{ database }} < {{ application_dir }}/data.sql
+
+- name: Copy config
+  template:
+    src: config.ini
+    dest: "{{ application_dir }}"
